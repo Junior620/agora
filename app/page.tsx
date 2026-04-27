@@ -105,51 +105,53 @@ export default function Home() {
         ease: "power3.out",
       });
 
-      gsap.utils.toArray<HTMLElement>(".fade-section").forEach((el) => {
-        gsap.to(el, {
-          opacity: 1,
-          y: 0,
-          duration: 0.8,
-          ease: "power2.out",
-          scrollTrigger: {
-            trigger: el,
-            start: "top 85%",
-          },
-        });
-      });
-
-      gsap.utils.toArray<HTMLElement>(".reveal-title, .section-title").forEach((el) => {
-        gsap.from(el, {
-          yPercent: 35,
-          opacity: 0,
-          duration: 0.75,
-          ease: "power3.out",
-          scrollTrigger: {
-            trigger: el,
-            start: "top 86%",
-          },
-        });
-      });
-
-      gsap.utils.toArray<HTMLElement>(".stagger-list").forEach((list) => {
-        const items = list.querySelectorAll(".stagger-item");
-        if (items.length === 0) return;
-
-        gsap.from(items, {
-          y: 24,
-          opacity: 0,
-          duration: 0.6,
-          stagger: 0.08,
-          ease: "power2.out",
-          scrollTrigger: {
-            trigger: list,
-            start: "top 82%",
-          },
-        });
-      });
-
       const mm = gsap.matchMedia();
+
+      /* Scroll (desktop / tablette) : évite sur mobile (titres tronqués, bande grise, blocs vides) */
       mm.add("(min-width: 768px)", () => {
+        gsap.utils.toArray<HTMLElement>(".fade-section").forEach((el) => {
+          gsap.to(el, {
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: el,
+              start: "top 85%",
+            },
+          });
+        });
+
+        gsap.utils.toArray<HTMLElement>(".reveal-title, .section-title").forEach((el) => {
+          gsap.from(el, {
+            yPercent: 20,
+            opacity: 0,
+            duration: 0.75,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: el,
+              start: "top 90%",
+            },
+          });
+        });
+
+        gsap.utils.toArray<HTMLElement>(".stagger-list").forEach((list) => {
+          const items = list.querySelectorAll(".stagger-item");
+          if (items.length === 0) return;
+
+          gsap.from(items, {
+            y: 24,
+            opacity: 0,
+            duration: 0.6,
+            stagger: 0.08,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: list,
+              start: "top 85%",
+            },
+          });
+        });
+
         gsap.utils.toArray<HTMLElement>(".parallax-media").forEach((el) => {
           gsap.fromTo(
             el,
@@ -190,7 +192,7 @@ export default function Home() {
   }, []);
 
   return (
-    <main className="min-h-screen bg-[#efefef]">
+    <main className="min-h-screen w-full max-w-full overflow-x-hidden bg-[#efefef]">
       <header className="site-header sticky top-0 z-50 pt-3">
         <div className="container-site px-4 md:px-8">
           <div className="flex items-center justify-between rounded-full bg-white px-6 py-4 shadow-sm">
@@ -214,11 +216,11 @@ export default function Home() {
 
       <section
         id="accueil"
-        className="fade-section container-site px-4 pt-2 pb-8 md:px-8 md:pt-3 md:pb-12 lg:-mt-10 lg:pt-0"
+        className="fade-section container-site min-w-0 px-4 pt-2 pb-8 md:px-8 md:pt-3 md:pb-12 lg:-mt-10 lg:pt-0"
       >
-        <div className="grid gap-8 lg:grid-cols-[1.15fr,1.2fr] lg:items-start">
-          <div className="space-y-8 pt-6 lg:flex lg:min-h-[500px] lg:flex-col lg:justify-center lg:pt-14">
-            <h1 className="max-w-[860px] text-[28px] font-bold leading-[1.14] tracking-[-0.01em] md:text-[31px] lg:text-[34px]">
+        <div className="grid min-w-0 gap-8 lg:grid-cols-[1.15fr,1.2fr] lg:items-start">
+          <div className="min-w-0 space-y-8 pt-6 lg:flex lg:min-h-[500px] lg:flex-col lg:justify-center lg:pt-14">
+            <h1 className="max-w-full text-[1.4rem] font-bold leading-[1.18] tracking-[-0.01em] sm:text-[1.6rem] md:text-[31px] lg:max-w-[860px] lg:text-[34px]">
               <span className="hidden lg:block">
                 <span className="block whitespace-nowrap">AGORA FILM INVEST fait émerger,</span>
                 <span className="block whitespace-nowrap">développe la créativité, la production</span>
@@ -238,7 +240,7 @@ export default function Home() {
             <Image src="/images/hero-main.jpg" alt="Hero principal" fill sizes="(max-width: 1024px) 100vw, 55vw" loading="eager" className="object-cover" />
           </div>
         </div>
-        <div className="relative mt-8 h-[340px] md:h-[400px] lg:-ml-6 lg:mt-6 lg:h-[470px]">
+        <div className="relative mt-8 h-[340px] min-w-0 overflow-x-clip md:h-[400px] lg:-ml-6 lg:mt-6 lg:h-[470px]">
           <div className="parallax-media absolute left-[6%] top-[8px] z-10 h-[210px] w-[40%] overflow-hidden rounded-[24px] shadow-[0_10px_26px_rgba(0,0,0,0.14)] md:left-[4%] md:h-[260px] md:w-[38%] lg:left-[0px] lg:top-[40px] lg:h-[248px] lg:w-[465px]">
             <Image src="/images/hero-collage-1.jpg" alt="Collage 1" fill sizes="(max-width: 1024px) 45vw, 36vw" className="object-cover object-center" />
           </div>
@@ -251,7 +253,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="fade-section relative h-[360px] w-full overflow-hidden md:h-[460px]">
+      <section className="fade-section relative h-[360px] w-full min-w-0 overflow-hidden md:h-[460px]">
         <Image src="/images/banner-camera.jpg" alt="Bannière caméra" fill sizes="100vw" className="parallax-media object-cover" />
       </section>
 
@@ -332,8 +334,10 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="realisations" className="fade-section container-site px-6 pt-[80px] pb-[72px] md:px-10">
-        <h2 className="reveal-title text-center text-[56px] font-bold uppercase tracking-[0.02em]">NOS RÉALISATIONS</h2>
+      <section id="realisations" className="fade-section container-site min-w-0 px-4 pt-[80px] pb-[72px] sm:px-6 md:px-10">
+        <h2 className="reveal-title break-words text-center text-[1.6rem] font-bold uppercase leading-tight tracking-[0.02em] sm:text-4xl md:text-5xl lg:text-[56px]">
+          NOS RÉALISATIONS
+        </h2>
         <div className="stagger-list mt-[48px] grid gap-y-[112px]">
           <article className="stagger-item relative flex max-w-full flex-col gap-6 rounded-[28px] bg-black py-7 pl-6 pr-6 text-white shadow-[0_10px_30px_rgba(0,0,0,0.2)] md:flex-row md:gap-0 md:pl-[250px] md:pr-8 md:py-8 lg:mx-auto lg:max-w-[1120px] lg:pl-[250px] lg:pr-10 lg:py-[30px]">
             <div className="hover-lift relative mx-auto h-[300px] w-[220px] shrink-0 overflow-hidden rounded-[18px] shadow-[0_10px_24px_rgba(0,0,0,0.25)] max-md:mx-auto md:absolute md:-left-[24px] md:top-1/2 md:mx-0 md:h-[300px] md:w-[220px] md:-translate-y-1/2 lg:h-[360px] lg:w-[255px]">
@@ -386,8 +390,10 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="fade-section container-site px-6 pt-[90px] pb-[80px] md:px-10">
-        <h2 className="reveal-title text-center text-[56px] font-bold uppercase tracking-[0.02em]">PROJET EN DÉVELOPPEMENT</h2>
+      <section className="fade-section container-site min-w-0 px-4 pt-[90px] pb-[80px] sm:px-6 md:px-10">
+        <h2 className="reveal-title break-words text-center text-[1.5rem] font-bold uppercase leading-tight tracking-[0.02em] sm:text-3xl md:text-5xl lg:text-[56px]">
+          PROJET EN DÉVELOPPEMENT
+        </h2>
         <article className="stagger-item relative mt-[48px] flex max-w-full flex-col gap-6 rounded-[28px] bg-black py-7 pl-6 pr-6 text-white shadow-[0_10px_30px_rgba(0,0,0,0.2)] md:flex-row md:gap-0 md:pl-[250px] md:pr-8 md:py-8 lg:mx-auto lg:max-w-[1120px] lg:pl-[250px] lg:pr-10 lg:py-[30px]">
           <div className="hover-lift relative mx-auto h-[300px] w-[220px] shrink-0 overflow-hidden rounded-[18px] shadow-[0_10px_24px_rgba(0,0,0,0.25)] max-md:mx-auto md:absolute md:-left-[24px] md:top-1/2 md:mx-0 md:h-[300px] md:w-[220px] md:-translate-y-1/2 lg:h-[360px] lg:w-[255px]">
             <Image
@@ -415,9 +421,9 @@ export default function Home() {
         </article>
       </section>
 
-      <section className="fade-section relative bg-white px-4 pb-[100px] pt-[60px]">
-        <div className="container-site">
-          <h2 className="reveal-title text-center text-5xl font-black">Ils nous ont fait confiance</h2>
+      <section className="fade-section relative scroll-mt-24 bg-white px-4 pb-[100px] pt-24 sm:pt-[72px] md:pt-[60px]">
+        <div className="container-site min-w-0">
+          <h2 className="reveal-title break-words text-center text-3xl font-black sm:text-4xl md:text-5xl">Ils nous ont fait confiance</h2>
           <div className="mt-10 grid grid-cols-2 items-center gap-8 md:grid-cols-3 lg:grid-cols-6">
             {logos.map((logo) => (
               <div key={logo} className="relative mx-auto h-16 w-36">
@@ -433,9 +439,9 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="produits" className="fade-section -mt-px bg-agGreen px-6 pb-[80px] pt-[80px] text-white">
-        <div className="container-site">
-          <h2 className="section-title reveal-title">NOS PRODUITS</h2>
+      <section id="produits" className="fade-section -mt-px min-w-0 scroll-mt-20 bg-agGreen px-4 pb-[80px] pt-[60px] text-white sm:px-6 sm:pt-20">
+        <div className="container-site min-w-0">
+          <h2 className="section-title reveal-title text-2xl sm:text-3xl md:text-4xl lg:text-5xl">NOS PRODUITS</h2>
           <div className="stagger-list mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {products.map((product, index) => (
               <div

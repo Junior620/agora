@@ -4,12 +4,19 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
+  /* Ancrage sous le header fixe (mobile) */
+  scroll-padding-top: 5.5rem;
 }
 
 body {
   margin: 0;
+  max-width: 100%;
+  overflow-x: hidden;
   background: #f2f2f2;
   color: #0f0f0f;
+  /* Évite le décalage 100vw + barre de défilement (bande blanche / contenu tassé) */
+  -webkit-font-smoothing: antialiased;
 }
 
 .container-site {
@@ -27,4 +34,12 @@ body {
 .fade-section {
   opacity: 0;
   transform: translateY(30px);
+}
+
+/* Mobile : pas d’apparition au scroll (évite contenus invisibles, transforms bugués) */
+@media (max-width: 767px) {
+  .fade-section {
+    opacity: 1;
+    transform: none;
+  }
 }
