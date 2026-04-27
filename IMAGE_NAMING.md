@@ -14,7 +14,7 @@ Dépose toutes les images dans `public/images` sauf les logos qui vont dans `pub
 - `developpement-lautre-clef-poster.jpg`
 - `actus-cannes-75.jpg`
 - `evenement-radisson.jpg`
-- `actualite-vivita.jpg` (section Actualités — Vivita)
+- `actualite-vivita.png` (section Actualités — Vivita)
 - `team-didier.jpg`
 - `team-kadia.jpg`
 - `team-tony.jpg`

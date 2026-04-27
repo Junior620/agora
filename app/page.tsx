@@ -23,6 +23,8 @@ const logos = [
   "/logos/logo-filmdis.png",
   "/logos/logo-partenaire-5.png",
   "/logos/logo-riviera-levant.png",
+  "/logos/logo-acme.png",
+  "/logos/logo-studio-sud.png",
 ];
 
 const team = [
@@ -46,6 +48,45 @@ const products = [
   { label: "Séries télévisées", icon: "/images/produit-series-televisees.png" },
   { label: "Long-metrage", icon: "/images/produit-long-metrage-2.png" },
 ];
+
+function SocialIconLink({
+  href,
+  ariaLabel,
+  src,
+  fallback,
+}: {
+  href: string;
+  ariaLabel: string;
+  src: string;
+  fallback: string;
+}) {
+  const [failed, setFailed] = useState(false);
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="relative flex h-10 w-10 items-center justify-center overflow-hidden rounded-full bg-zinc-200 ring-1 ring-black/10 transition hover:bg-zinc-300"
+      aria-label={ariaLabel}
+    >
+      {failed ? (
+        <span className="flex h-full w-full items-center justify-center rounded-full bg-black text-xs font-bold text-white">
+          {fallback}
+        </span>
+      ) : (
+        <Image
+          src={src}
+          alt=""
+          fill
+          sizes="40px"
+          className="object-contain p-1.5"
+          onError={() => setFailed(true)}
+        />
+      )}
+    </a>
+  );
+}
+
 function VivitaIllustration() {
   const [usePlaceholder, setUsePlaceholder] = useState(false);
   if (usePlaceholder) {
@@ -58,7 +99,7 @@ function VivitaIllustration() {
         <span className="max-w-[280px] leading-relaxed sm:max-w-none">
           Ajoutez votre image sous{" "}
           <code className="block break-all rounded bg-black/5 px-1.5 py-0.5 text-[0.7rem] sm:inline sm:text-xs">
-            public/images/actualite-vivita.jpg
+            public/images/actualite-vivita.png
           </code>
         </span>
       </div>
@@ -67,7 +108,7 @@ function VivitaIllustration() {
   return (
     <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl shadow-[0_12px_40px_rgba(0,0,0,0.1)]">
       <Image
-        src="/images/actualite-vivita.jpg"
+        src="/images/actualite-vivita.png"
         alt="Vivita — visuel d&apos;illustration"
         fill
         className="object-cover"
@@ -505,7 +546,6 @@ export default function Home() {
           <h2 className="section-title reveal-title px-1">Actualités</h2>
           <article className="mt-8 grid gap-8 sm:mt-10 sm:gap-10 md:mt-12 lg:grid-cols-2 lg:items-start lg:gap-14">
             <div className="min-w-0 max-w-prose space-y-5 text-base leading-[1.7] text-[#1a1a1a] sm:space-y-6 sm:text-[17px] sm:leading-[1.75] lg:max-w-none">
-              <p className="text-xs font-semibold uppercase tracking-wider text-agGreen sm:text-sm">✨ Présentation – Vivita</p>
               <h3 className="text-2xl font-bold leading-tight text-black sm:text-3xl md:text-4xl">Vivita</h3>
               <p>
                 Vivita est une marque de cosmétiques née en 2022 au Sénégal, pensée pour répondre aux besoins
@@ -615,8 +655,18 @@ export default function Home() {
                 </div>
               </form>
               <div className="mt-10 flex items-center justify-center gap-4">
-                <span className="flex h-10 w-10 items-center justify-center rounded-full bg-black text-sm font-bold text-white">f</span>
-                <span className="flex h-10 w-10 items-center justify-center rounded-full bg-black text-sm font-bold text-white">ig</span>
+                <SocialIconLink
+                  href="https://www.facebook.com/"
+                  ariaLabel="Facebook"
+                  src="/social/icon-facebook.png"
+                  fallback="f"
+                />
+                <SocialIconLink
+                  href="https://www.instagram.com/"
+                  ariaLabel="Instagram"
+                  src="/social/icon-instagram.png"
+                  fallback="ig"
+                />
               </div>
               <p className="mt-5 text-center text-[13px] font-normal text-black/70">© 2021 by Agora Film Invest. Proudly created with Fastgraphiste</p>
             </div>
