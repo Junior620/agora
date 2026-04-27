@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: #f2f2f2;
+  color: #0f0f0f;
+}
+
+.container-site {
+  @apply mx-auto w-full max-w-[1280px];
+}
+
+.section-title {
+  @apply text-center text-4xl font-black uppercase tracking-wide md:text-5xl;
+}
+
+.btn-primary {
+  @apply inline-flex rounded-full bg-black px-8 py-3 text-sm font-semibold text-white transition duration-300 hover:scale-105;
+}
+
+.fade-section {
+  opacity: 0;
+  transform: translateY(30px);
+}
