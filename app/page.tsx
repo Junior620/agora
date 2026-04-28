@@ -28,7 +28,7 @@ const logos = [
 ];
 
 const team = [
-  { name: "Didier Mouliom", role: "Directeur Général", img: "/images/team-didier.jpg" },
+  { name: "Didier Mouliom", role: "Producteur", img: "/images/team-didier.jpg" },
   { name: "Kadia Mouliom", role: "Responsable Afrique de l'ouest", img: "/images/team-kadia.jpg" },
   { name: "Tony Coco-Viloin", role: "Directeur ÉPICES et Réalisateur", img: "/images/team-tony.jpg" },
   { name: "Julien Kemajou", role: "Responsable Marketing", img: "/images/team-julien.jpg" },
@@ -36,6 +36,8 @@ const team = [
   { name: "Ibrahim Souleymane", role: "Chargé de production", img: "/images/team-member-6.jpg" },
   { name: "Jean-José Caddy", role: "Caméraman", img: "/images/team-member-7.jpg" },
   { name: "Leanna Reeves", role: "Consultante en Finance internationale", img: "/images/team-member-8.jpg" },
+  { name: "Michel Coursil", role: "Président", img: "/images/team-michel-coursil.jpeg" },
+  { name: "Daouda Seidou", role: "Responsable administratif", img: "/images/team-daouda-seidou.jpeg" },
   { name: "Aicha Gning", role: "Production", img: "/images/team-aicha-gning.jpg" },
   { name: "Cheikh Senghor", role: "Production", img: "/images/team-cheikh-senghor.jpg" },
   { name: "Thierno Diop", role: "Production", img: "/images/team-thierno-diop.jpg" },
