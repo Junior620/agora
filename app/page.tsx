@@ -512,8 +512,8 @@ export default function Home() {
             <div>
               <h2 className="text-[50px] font-bold leading-[1.2]">Actualité :</h2>
               <p className="mt-6 max-w-[450px] text-[17px] font-normal leading-[1.75]">
-                La société AGORA FILM INVEST assistera une fois de plus comme à son habitude à la 75ème édition du
-                Festival de Cannes qui aura lieu du 17 au 28 Mai 2022.
+                La société AGORA FILM INVEST assistera une fois de plus, comme à son habitude, à la 79ème édition
+                du Festival de Cannes qui aura lieu du 17 au 28 mai 2026.
               </p>
             </div>
             <div className="mt-[60px]">
