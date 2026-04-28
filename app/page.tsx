@@ -53,7 +53,6 @@ const products = [
     icon: "/images/produit-court-metrage.png",
     href: "https://youtu.be/NVBIvPkcIzs?is=cYKazqzLr2ty9Bya",
   },
-  { label: "Séries télévisées", icon: "/images/produit-series-televisees.png" },
 ];
 
 function SocialIconLink({
@@ -592,13 +591,21 @@ export default function Home() {
             <div className="mt-[60px]">
               <h2 className="text-[50px] font-bold leading-[1.2]">Évènement :</h2>
               <p className="mt-6 max-w-[470px] text-[17px] font-normal leading-[1.75]">
-                Les sociétés de production RAFPROD et Agora Film Invest ont organisé, les 15 Mai 2022 de 14h a 17h,
-                à hôtel radisson 1255 de Cannes une séance de projection de ses différentes oeuvres (courtmétrage,
-                court métrage et séries).
+                Vivita est une marque de cosmétiques née en 2022 au Sénégal, pensée pour répondre aux besoins
+                d&apos;une clientèle moderne en quête de qualité, d&apos;accessibilité et d&apos;efficacité.
               </p>
               <p className="mt-4 max-w-[470px] text-[17px] font-normal leading-[1.75]">
-                Nous vous invitons à venir découvrir lors de cet évènement nos réalisations en avant l&apos;avant
-                rencontre le talentueux producteur sénégalais Mme Clara Gaye et le réalisateur français Tony Coco-Vioin.
+                Fabriquée au Canada et portée par le holding Cosmakeup, Vivita s&apos;appuie sur un écosystème solide
+                de distribution, avec plusieurs boutiques au Sénégal et une présence à Abidjan et au Rwanda.
+              </p>
+              <p className="mt-4 max-w-[470px] text-[17px] font-normal leading-[1.75]">
+                Déjà visible à travers des événements prestigieux et des partenariats dans l&apos;univers du cinéma avec
+                plusieurs maisons de production au Sénégal, cette fois avec Agora Film Invest, la marque affirme un
+                positionnement à la fois premium, culturel et international.
+              </p>
+              <p className="mt-4 max-w-[470px] text-[17px] font-normal leading-[1.75]">
+                Le 20 mai, à l&apos;occasion du Festival de Cannes, Vivita franchit une étape clé avec son lancement
+                international officiel.
               </p>
               <div className="mt-[30px] flex flex-col items-start gap-[15px]">
                 <button className="rounded-full bg-gray-500 px-7 py-3 text-base font-medium text-white transition hover:bg-gray-600">
@@ -618,37 +625,6 @@ export default function Home() {
           <div className="parallax-media relative overflow-hidden">
             <Image src="/images/evenement-radisson.jpg" alt="Evenement Radisson" fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover" />
           </div>
-        </div>
-      </section>
-
-      <section id="actualites" className="fade-section border-t border-black/5 bg-white px-4 py-12 sm:px-6 sm:py-14 md:px-10 md:py-16">
-        <div className="container-site mx-auto max-w-[1180px]">
-          <h2 className="section-title reveal-title px-1">Actualités</h2>
-          <article className="mt-8 grid gap-8 sm:mt-10 sm:gap-10 md:mt-12 lg:grid-cols-2 lg:items-start lg:gap-14">
-            <div className="min-w-0 max-w-prose space-y-5 text-base leading-[1.7] text-[#1a1a1a] sm:space-y-6 sm:text-[17px] sm:leading-[1.75] lg:max-w-none">
-              <h3 className="text-2xl font-bold leading-tight text-black sm:text-3xl md:text-4xl">Vivita</h3>
-              <p>
-                Vivita est une marque de cosmétiques née en 2022 au Sénégal, pensée pour répondre aux besoins
-                d&apos;une clientèle moderne en quête de qualité, d&apos;accessibilité et d&apos;efficacité.
-              </p>
-              <p>
-                Fabriquée au Canada et portée par le holding Cosmakeup, Vivita s&apos;appuie sur un écosystème
-                solide de distribution, avec plusieurs boutiques au Sénégal et une présence à Abidjan et au Rwanda.
-              </p>
-              <p>
-                Déjà visible à travers des événements prestigieux et des partenariats dans l&apos;univers du cinéma
-                avec plusieurs maisons de production au Sénégal, cette fois avec Agora Film Invest, la marque
-                affirme un positionnement à la fois premium, culturel et international.
-              </p>
-              <p className="border-l-4 border-agGreen pl-4 text-base font-medium leading-[1.6] text-black sm:pl-5 sm:text-[17px] md:text-[18px]">
-                Le 20 mai, à l&apos;occasion du Festival de Cannes, Vivita franchit une étape clé avec son
-                lancement international officiel.
-              </p>
-            </div>
-            <div className="min-w-0 w-full lg:sticky lg:top-24 lg:self-start">
-              <VivitaIllustration />
-            </div>
-          </article>
         </div>
       </section>
 
