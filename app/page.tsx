@@ -237,8 +237,15 @@ export default function Home() {
       <header className="site-header sticky top-0 z-50 pt-3">
         <div className="container-site px-4 md:px-8">
           <div className="flex items-center justify-between rounded-full bg-white px-6 py-4 shadow-sm">
-            <a href="#accueil" className="relative block h-[56px] w-[120px] shrink-0">
-              <Image src="/logo/logo.png" alt="Logo Agora Film Invest" fill sizes="120px" className="object-contain object-left" />
+            <a href="#accueil" className="relative block h-[60px] w-[132px] shrink-0 sm:h-[64px] sm:w-[142px] lg:h-[68px] lg:w-[152px]">
+              <Image
+                src="/logo/logo.png"
+                alt="Logo Agora Film Invest"
+                fill
+                sizes="(max-width: 640px) 132px, (max-width: 1024px) 142px, 152px"
+                className="object-contain object-left"
+                priority
+              />
             </a>
             <nav className="hidden items-center gap-10 text-[15px] font-normal lg:flex">
               {navItems.map((item) => (
@@ -618,13 +625,13 @@ export default function Home() {
             <div className="relative z-10 flex h-full flex-col items-center px-8 pt-20 text-center text-white">
               <h2 className="reveal-title text-[50px] font-bold uppercase tracking-[0.2em]">Contact</h2>
               <p className="mt-6 text-[18px] leading-[1.7]">
-                <span className="font-semibold">Tél :</span> +594 694383014 ; +33771077361
+                <span className="font-semibold">Tél :</span> +33778214874
               </p>
               <p className="mt-2 text-[18px] leading-[1.7]">
-                <span className="font-semibold">Email :</span> agorafilminvest@gmail.com
+                <span className="font-semibold">Email :</span> contactagorafilminvest@gmail.com
               </p>
               <p className="mt-2 text-[18px] leading-[1.7]">
-                <span className="font-semibold">Adresse :</span> 3 D domaine de Sèze 97118 Saint François, Guadeloupe
+                <span className="font-semibold">Adresse :</span> 12 rue de la République Domly 97110 Pointe-a-Pitre, France
               </p>
               <div className="mt-6 h-[3px] w-14 bg-white/90" />
             </div>
@@ -632,7 +639,7 @@ export default function Home() {
 
           <div className="bg-[#efefef] px-6 py-12 md:px-12">
             <div className="mx-auto max-w-[560px]">
-              <h3 className="reveal-title text-center text-[30px] font-bold leading-[1.2] text-black">Contactez-nous</h3>
+              <h3 className="reveal-title text-center text-[30px] font-bold leading-[1.2] text-black">Nous contacter</h3>
               <form className="mt-10 space-y-4">
                 <div className="grid gap-4 sm:grid-cols-2">
                   <input className="w-full rounded-md bg-[#dcdcdc] px-5 py-4 text-[16px] font-normal text-black placeholder:text-[16px] placeholder:text-black/65" placeholder="Prénom" />

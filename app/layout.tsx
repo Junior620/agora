@@ -21,11 +21,7 @@ export const metadata: Metadata = {
     template: `%s | ${siteName}`,
   },
   description,
-  icons: {
-    icon: [{ url: "/logo/logo.png", type: "image/png" }],
-    shortcut: "/logo/logo.png",
-    apple: [{ url: "/logo/logo.png", sizes: "180x180", type: "image/png" }],
-  },
+  /* Favicon / Apple : générés par app/icon.tsx et app/apple-icon.tsx (haute résolution, lisibles à petite taille). */
   applicationName: siteName,
   authors: [{ name: siteName, url: getSiteUrl() }],
   creator: siteName,
