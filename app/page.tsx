@@ -43,10 +43,17 @@ const team = [
 
 const galerie = Array.from({ length: 10 }, (_, i) => `/images/galerie-${i + 1}.jpg`);
 const products = [
-  { label: "Long-metrage", icon: "/images/produit-long-metrage.png" },
-  { label: "Court-metrage", icon: "/images/produit-court-metrage.png" },
+  {
+    label: "Long-metrage",
+    icon: "/images/produit-long-metrage.png",
+    hoverImage: "/images/produit-long-metrage-hover.png",
+  },
+  {
+    label: "Court-metrage",
+    icon: "/images/produit-court-metrage.png",
+    href: "https://youtu.be/NVBIvPkcIzs?is=cYKazqzLr2ty9Bya",
+  },
   { label: "Séries télévisées", icon: "/images/produit-series-televisees.png" },
-  { label: "Long-metrage", icon: "/images/produit-long-metrage-2.png" },
 ];
 
 function SocialIconLink({
@@ -133,6 +140,8 @@ const galerieLayout = [
 ];
 
 export default function Home() {
+  const [activeProductImage, setActiveProductImage] = useState<string | null>(null);
+
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
     const hoverCleanups: Array<() => void> = [];
@@ -231,6 +240,19 @@ export default function Home() {
       ctx.revert();
     };
   }, []);
+
+  useEffect(() => {
+    if (!activeProductImage) return;
+
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setActiveProductImage(null);
+      }
+    };
+
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [activeProductImage]);
 
   return (
     <main className="min-h-screen w-full max-w-full overflow-x-hidden bg-[#efefef]">
@@ -490,18 +512,69 @@ export default function Home() {
       <section id="produits" className="fade-section -mt-px min-w-0 scroll-mt-20 bg-agGreen px-4 pb-[80px] pt-[60px] text-white sm:px-6 sm:pt-20">
         <div className="container-site min-w-0">
           <h2 className="section-title reveal-title text-2xl sm:text-3xl md:text-4xl lg:text-5xl">NOS PRODUITS</h2>
-          <div className="stagger-list mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-            {products.map((product, index) => (
-              <div
-                key={`${product.label}-${index}`}
-                className="stagger-item hover-lift rounded-xl bg-white p-6 text-center text-black shadow-soft transition hover:-translate-y-1"
-              >
-                <div className="relative mx-auto mb-4 h-11 w-11">
-                  <Image src={product.icon} alt={`Icône ${product.label}`} fill sizes="44px" className="object-contain" />
+          <div className="mx-auto mt-10 grid max-w-5xl gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {products.map((product, index) => {
+              const cardContent = (
+                <>
+                  <div className="relative mx-auto mb-4 h-11 w-11">
+                    <Image src={product.icon} alt={`Icône ${product.label}`} fill sizes="44px" className="object-contain" />
+                  </div>
+                  <p className="text-[18px] font-semibold leading-[1.2]">{product.label}</p>
+                </>
+              );
+
+              if (product.href) {
+                return (
+                  <a
+                    key={`${product.label}-${index}`}
+                    href={product.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group hover-lift relative overflow-hidden rounded-xl bg-white p-6 text-center text-black shadow-soft transition hover:-translate-y-1 hover:ring-2 hover:ring-black/15"
+                    aria-label={`Ouvrir ${product.label} sur YouTube`}
+                  >
+                    <span className="pointer-events-none absolute inset-0 bg-black/0 transition-colors duration-300 group-hover:bg-black/25" />
+                    <span className="pointer-events-none absolute left-1/2 top-1/2 flex h-14 w-14 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-white/95 text-xl text-black opacity-0 shadow-md transition duration-300 group-hover:opacity-100">
+                      ▶
+                    </span>
+                    {cardContent}
+                  </a>
+                );
+              }
+
+              if (product.hoverImage) {
+                return (
+                  <button
+                    key={`${product.label}-${index}`}
+                    type="button"
+                    onClick={() => setActiveProductImage(product.hoverImage ?? null)}
+                    className="group hover-lift relative overflow-hidden rounded-xl bg-white p-6 text-center text-black shadow-soft transition hover:-translate-y-1"
+                    aria-label={`Agrandir l'image ${product.label}`}
+                  >
+                    <span className="pointer-events-none absolute inset-0 opacity-0 transition duration-300 group-hover:opacity-100">
+                      <Image
+                        src={product.hoverImage}
+                        alt=""
+                        fill
+                        sizes="(max-width: 1024px) 100vw, 33vw"
+                        className="object-cover"
+                      />
+                    </span>
+                    <span className="pointer-events-none absolute inset-0 bg-black/0 transition-colors duration-300 group-hover:bg-black/15" />
+                    <div className="relative z-10">{cardContent}</div>
+                  </button>
+                );
+              }
+
+              return (
+                <div
+                  key={`${product.label}-${index}`}
+                  className="hover-lift rounded-xl bg-white p-6 text-center text-black shadow-soft transition hover:-translate-y-1"
+                >
+                  {cardContent}
                 </div>
-                <p className="text-[18px] font-semibold leading-[1.2]">{product.label}</p>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
@@ -680,6 +753,30 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {activeProductImage ? (
+        <div
+          className="fixed inset-0 z-[90] flex items-center justify-center bg-black/80 px-4 py-8"
+          onClick={() => setActiveProductImage(null)}
+          role="dialog"
+          aria-modal="true"
+          aria-label="Aperçu de l'image produit"
+        >
+          <button
+            type="button"
+            className="absolute right-4 top-4 rounded-full bg-white/90 px-3 py-1 text-sm font-semibold text-black transition hover:bg-white"
+            onClick={() => setActiveProductImage(null)}
+          >
+            Fermer
+          </button>
+          <div
+            className="relative h-[min(82vh,900px)] w-[min(94vw,1300px)] overflow-hidden rounded-xl shadow-[0_20px_60px_rgba(0,0,0,0.5)]"
+            onClick={(event) => event.stopPropagation()}
+          >
+            <Image src={activeProductImage} alt="Aperçu produit" fill sizes="100vw" className="object-contain bg-black" />
+          </div>
+        </div>
+      ) : null}
     </main>
   );
 }
