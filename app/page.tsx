@@ -513,7 +513,7 @@ export default function Home() {
       <section id="produits" className="fade-section -mt-px min-w-0 scroll-mt-20 bg-agGreen px-4 pb-[80px] pt-[60px] text-white sm:px-6 sm:pt-20">
         <div className="container-site min-w-0">
           <h2 className="section-title reveal-title text-2xl sm:text-3xl md:text-4xl lg:text-5xl">NOS PRODUITS</h2>
-          <div className="mx-auto mt-10 grid max-w-5xl gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mx-auto mt-10 grid max-w-2xl gap-5 sm:max-w-3xl sm:grid-cols-2">
             {products.map((product, index) => {
               const cardContent = (
                 <>
@@ -580,52 +580,84 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="fade-section grid bg-[#efefef] md:grid-cols-2">
-        <div className="flex items-center justify-center px-6 py-14 md:px-12 md:py-16">
-          <div className="w-full max-w-[540px] pl-3 md:pl-4">
-            <div>
-              <h2 className="text-[50px] font-bold leading-[1.2]">Actualité :</h2>
-              <p className="mt-6 max-w-[450px] text-[17px] font-normal leading-[1.75]">
-                La société AGORA FILM INVEST assistera une fois de plus, comme à son habitude, à la 79ème édition
-                du Festival de Cannes qui aura lieu du 17 au 28 mai 2026.
-              </p>
-            </div>
-            <div className="mt-[60px]">
-              <h2 className="text-[50px] font-bold leading-[1.2]">Évènement :</h2>
-              <p className="mt-6 max-w-[470px] text-[17px] font-normal leading-[1.75]">
-                Vivita est une marque de cosmétiques née en 2022 au Sénégal, pensée pour répondre aux besoins
-                d&apos;une clientèle moderne en quête de qualité, d&apos;accessibilité et d&apos;efficacité.
-              </p>
-              <p className="mt-4 max-w-[470px] text-[17px] font-normal leading-[1.75]">
-                Fabriquée au Canada et portée par le holding Cosmakeup, Vivita s&apos;appuie sur un écosystème solide
-                de distribution, avec plusieurs boutiques au Sénégal et une présence à Abidjan et au Rwanda.
-              </p>
-              <p className="mt-4 max-w-[470px] text-[17px] font-normal leading-[1.75]">
-                Déjà visible à travers des événements prestigieux et des partenariats dans l&apos;univers du cinéma avec
-                plusieurs maisons de production au Sénégal, cette fois avec Agora Film Invest, la marque affirme un
-                positionnement à la fois premium, culturel et international.
-              </p>
-              <p className="mt-4 max-w-[470px] text-[17px] font-normal leading-[1.75]">
-                Le 20 mai, à l&apos;occasion du Festival de Cannes, Vivita franchit une étape clé avec son lancement
-                international officiel.
-              </p>
-              <div className="mt-[30px] flex flex-col items-start gap-[15px]">
-                <button className="rounded-full bg-gray-500 px-7 py-3 text-base font-medium text-white transition hover:bg-gray-600">
-                  Programme de l&apos;évènement
-                </button>
-                <button className="rounded-full bg-gray-500 px-7 py-3 text-base font-medium text-white transition hover:bg-gray-600">
-                  Inscription à l&apos;évènement
-                </button>
+      <section className="fade-section bg-[#efefef]">
+        <div className="mx-auto grid w-full grid-cols-1 md:grid-cols-2">
+          <div className="flex flex-col md:min-h-[560px] md:items-center md:justify-center md:px-12 md:py-16">
+            <div className="w-full max-w-[540px] pl-3 md:pl-4">
+              <div className="px-6 pb-6 pt-14 md:px-0 md:pb-0 md:pt-0">
+                <h2 className="text-[50px] font-bold leading-[1.2]">Actualité :</h2>
+                <p className="mt-6 max-w-[450px] text-[17px] font-normal leading-[1.75]">
+                  La société AGORA FILM INVEST assistera une fois de plus, comme à son habitude, à la 79ème édition
+                  du Festival de Cannes qui aura lieu du 12 au 23 mai 2026.
+                </p>
+              </div>
+              <div className="parallax-media relative min-h-[260px] w-full overflow-hidden md:hidden">
+                <Image
+                  src="/images/actus-cannes-75.jpg"
+                  alt="Festival international du film de Cannes"
+                  fill
+                  sizes="100vw"
+                  className="object-cover"
+                />
+              </div>
+              <div className="px-6 pb-10 pt-[40px] md:mt-[60px] md:px-0 md:pb-0 md:pt-0">
+                <h2 className="text-[50px] font-bold leading-[1.2]">Évènement :</h2>
+                <p className="mt-6 max-w-[470px] text-[17px] font-normal leading-[1.75]">
+                  Vivita est une marque de cosmétiques née en 2022 au Sénégal, pensée pour répondre aux besoins
+                  d&apos;une clientèle moderne en quête de qualité, d&apos;accessibilité et d&apos;efficacité.
+                </p>
+                <p className="mt-4 max-w-[470px] text-[17px] font-normal leading-[1.75]">
+                  Fabriquée au Canada et portée par le holding Cosmakeup, Vivita s&apos;appuie sur un écosystème solide
+                  de distribution, avec plusieurs boutiques au Sénégal et une présence à Abidjan et au Rwanda.
+                </p>
+                <p className="mt-4 max-w-[470px] text-[17px] font-normal leading-[1.75]">
+                  Déjà visible à travers des événements prestigieux et des partenariats dans l&apos;univers du cinéma
+                  avec plusieurs maisons de production au Sénégal, cette fois avec Agora Film Invest, la marque
+                  affirme un positionnement à la fois premium, culturel et international.
+                </p>
+                <p className="mt-4 max-w-[470px] text-[17px] font-normal leading-[1.75]">
+                  Le 20 mai, à l&apos;occasion du Festival de Cannes, Vivita franchit une étape clé avec son lancement
+                  international officiel.
+                </p>
+                <div className="mt-[30px] flex flex-col items-start gap-[15px]">
+                  <button className="rounded-full bg-gray-500 px-7 py-3 text-base font-medium text-white transition hover:bg-gray-600">
+                    Programme de l&apos;évènement
+                  </button>
+                  <button className="rounded-full bg-gray-500 px-7 py-3 text-base font-medium text-white transition hover:bg-gray-600">
+                    Inscription à l&apos;évènement
+                  </button>
+                </div>
+              </div>
+              <div className="parallax-media relative min-h-[260px] w-full overflow-hidden md:hidden">
+                <Image
+                  src="/images/evenement-radisson.jpg"
+                  alt="Événement Radisson Cannes"
+                  fill
+                  sizes="100vw"
+                  className="object-cover"
+                />
               </div>
             </div>
           </div>
-        </div>
-        <div className="grid min-h-[560px] grid-rows-2">
-          <div className="parallax-media relative overflow-hidden">
-            <Image src="/images/actus-cannes-75.jpg" alt="Cannes 75" fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover" />
-          </div>
-          <div className="parallax-media relative overflow-hidden">
-            <Image src="/images/evenement-radisson.jpg" alt="Evenement Radisson" fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover" />
+          <div className="hidden min-h-[560px] grid-cols-1 grid-rows-2 md:grid">
+            <div className="parallax-media relative min-h-[280px] overflow-hidden md:min-h-0 md:h-full">
+              <Image
+                src="/images/actus-cannes-75.jpg"
+                alt="Festival international du film de Cannes"
+                fill
+                sizes="50vw"
+                className="object-cover"
+              />
+            </div>
+            <div className="parallax-media relative min-h-[280px] overflow-hidden md:min-h-0 md:h-full">
+              <Image
+                src="/images/evenement-radisson.jpg"
+                alt="Événement Radisson Cannes"
+                fill
+                sizes="50vw"
+                className="object-cover"
+              />
+            </div>
           </div>
         </div>
       </section>
