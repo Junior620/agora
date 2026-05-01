@@ -524,25 +524,6 @@ export default function Home() {
                 </>
               );
 
-              if (product.href) {
-                return (
-                  <a
-                    key={`${product.label}-${index}`}
-                    href={product.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group hover-lift relative overflow-hidden rounded-xl bg-white p-6 text-center text-black shadow-soft transition hover:-translate-y-1 hover:ring-2 hover:ring-black/15"
-                    aria-label={`Ouvrir ${product.label} sur YouTube`}
-                  >
-                    <span className="pointer-events-none absolute inset-0 bg-black/0 transition-colors duration-300 group-hover:bg-black/25" />
-                    <span className="pointer-events-none absolute left-1/2 top-1/2 flex h-14 w-14 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-white/95 text-xl text-black opacity-0 shadow-md transition duration-300 group-hover:opacity-100">
-                      ▶
-                    </span>
-                    {cardContent}
-                  </a>
-                );
-              }
-
               if (product.hoverImage) {
                 return (
                   <button
