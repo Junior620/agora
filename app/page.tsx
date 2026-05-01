@@ -53,7 +53,7 @@ const products = [
   {
     label: "Court-metrage",
     icon: "/images/produit-court-metrage.png",
-    href: "https://youtu.be/NVBIvPkcIzs?is=cYKazqzLr2ty9Bya",
+    hoverImage: "/images/produit-court-metrage-hover.jpg",
   },
 ];
 
