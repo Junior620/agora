@@ -44,14 +44,22 @@ const team = [
 ];
 
 const galerie = Array.from({ length: 10 }, (_, i) => `/images/galerie-${i + 1}.jpg`);
-const products = [
+
+type ProductCard = {
+  label: string;
+  icon: string;
+  hoverImage?: string;
+  href?: string;
+};
+
+const products: ProductCard[] = [
   {
-    label: "Long-metrage",
+    label: "Court-métrage",
     icon: "/images/produit-long-metrage.png",
-    hoverImage: "/images/produit-long-metrage-hover.png",
+    href: "https://youtu.be/NVBIvPkcIzs?is=cYKazqzLr2ty9Bya",
   },
   {
-    label: "Court-metrage",
+    label: "Court-métrage",
     icon: "/images/produit-court-metrage.png",
     hoverImage: "/images/produit-court-metrage-hover.jpg",
   },
@@ -524,6 +532,25 @@ export default function Home() {
                 </>
               );
 
+              if (product.href) {
+                return (
+                  <a
+                    key={`${product.label}-${index}`}
+                    href={product.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group hover-lift relative overflow-hidden rounded-xl bg-white p-6 text-center text-black shadow-soft transition hover:-translate-y-1 hover:ring-2 hover:ring-black/15"
+                    aria-label="Voir la vidéo sur YouTube (Court-métrage)"
+                  >
+                    <span className="pointer-events-none absolute inset-0 bg-black/0 transition-colors duration-300 group-hover:bg-black/25" />
+                    <span className="pointer-events-none absolute left-1/2 top-1/2 flex h-14 w-14 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-white/95 text-xl text-black opacity-0 shadow-md transition duration-300 group-hover:opacity-100">
+                      ▶
+                    </span>
+                    {cardContent}
+                  </a>
+                );
+              }
+
               if (product.hoverImage) {
                 return (
                   <button
@@ -689,13 +716,13 @@ export default function Home() {
             <div className="relative z-10 flex h-full flex-col items-center px-8 pt-20 text-center text-white">
               <h2 className="reveal-title text-[50px] font-bold uppercase tracking-[0.2em]">Contact</h2>
               <p className="mt-6 text-[18px] leading-[1.7]">
-                <span className="font-semibold">Tél :</span> +33778214874
-              </p>
-              <p className="mt-2 text-[18px] leading-[1.7]">
                 <span className="font-semibold">Email :</span> contactagorafilminvest@gmail.com
               </p>
               <p className="mt-2 text-[18px] leading-[1.7]">
                 <span className="font-semibold">Adresse :</span> 12 rue de la République Domly 97110 Pointe-a-Pitre, France
+              </p>
+              <p className="mt-2 text-[18px] leading-[1.7]">
+                <span className="font-semibold">Tél :</span> +33778214874
               </p>
               <div className="mt-6 h-[3px] w-14 bg-white/90" />
             </div>
