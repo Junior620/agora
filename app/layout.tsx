@@ -1,5 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Raleway } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import { getMetadataBase, getSiteUrl } from "@/lib/site";
 import "./globals.css";
 
@@ -115,6 +117,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className={`w-full max-w-full overflow-x-hidden antialiased ${raleway.className}`}>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(getJsonLd()) }} />
         {children}
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
