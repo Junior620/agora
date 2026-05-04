@@ -41,6 +41,26 @@ const team = [
   { name: "Aicha Gning", role: "Production", img: "/images/team-aicha-gning.jpg" },
   { name: "Cheikh Senghor", role: "Production", img: "/images/team-cheikh-senghor.jpg" },
   { name: "Thierno Diop", role: "Production", img: "/images/team-thierno-diop.jpg" },
+  {
+    name: "Alain Martinoli",
+    role: "Co-producteur\nCasting\nHealth director",
+    img: "/images/team-alain-martinoli.jpg",
+  },
+  {
+    name: "Yoan Guy-Yves N'Dri",
+    role: "Producteur, acteur",
+    img: "/images/team-yoan-guy-yves-n-dri.jpg",
+  },
+  {
+    name: "Déborah Denecke",
+    role: "Chargée de coproduction Brésil et Allemagne, makeup artiste",
+    img: "/images/team-deborah-denecke.jpg",
+  },
+  {
+    name: "Amaka Anthony",
+    role: "Chargée de coproduction Nollywood / Nigeria",
+    img: "/images/team-amaka-anthony.jpg",
+  },
 ];
 
 const galerie = Array.from({ length: 10 }, (_, i) => `/images/galerie-${i + 1}.jpg`);
@@ -680,7 +700,7 @@ export default function Home() {
                   <Image src={member.img} alt={member.name} fill sizes="160px" className="object-cover" />
                 </div>
                 <h3 className="mt-4 text-3xl font-bold">{member.name}</h3>
-                <p className="mt-1 text-base text-white/80">{member.role}</p>
+                <p className="mt-1 whitespace-pre-line text-base text-white/80">{member.role}</p>
               </div>
             ))}
           </div>
