@@ -5,7 +5,16 @@ import { useEffect, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-const navItems = [
+/** Adresse utilisée pour le bouton d’accroche hero et le lien « Nous contacter » dans le menu. */
+const CONTACT_EMAIL = "agorafilminvest@gmail.com";
+
+type NavLink = {
+  label: string;
+  id: string;
+  mailto?: string;
+};
+
+const navItems: NavLink[] = [
   { label: "Accueil", id: "accueil" },
   { label: "Nos réalisations", id: "realisations" },
   { label: "A propos de nous", id: "apropos" },
@@ -13,7 +22,7 @@ const navItems = [
   { label: "Notre équipe", id: "equipe" },
   { label: "Actualités", id: "actualites" },
   { label: "Galerie", id: "galerie" },
-  { label: "Nous contacter", id: "contact" },
+  { label: "Nous contacter", id: "contact", mailto: CONTACT_EMAIL },
 ];
 
 const logos = [
@@ -301,7 +310,11 @@ export default function Home() {
             </a>
             <nav className="hidden items-center gap-10 text-[15px] font-normal lg:flex">
               {navItems.map((item) => (
-                <a key={item.id} href={`#${item.id}`} className="transition hover:opacity-60">
+                <a
+                  key={item.id}
+                  href={item.mailto ? `mailto:${item.mailto}` : `#${item.id}`}
+                  className="transition hover:opacity-60"
+                >
                   {item.label}
                 </a>
               ))}
@@ -332,7 +345,10 @@ export default function Home() {
                 s&apos;occupe de la promotion des talents
               </span>
             </h1>
-            <a href="#contact" className="btn-primary self-start px-10 py-4 text-base lg:self-center lg:ml-0">
+            <a
+              href={`mailto:${CONTACT_EMAIL}`}
+              className="btn-primary self-start px-10 py-4 text-base lg:self-center lg:ml-0"
+            >
               Nous contacter
             </a>
           </div>
@@ -652,9 +668,14 @@ export default function Home() {
                   <button className="rounded-full bg-gray-500 px-7 py-3 text-base font-medium text-white transition hover:bg-gray-600">
                     Programme de l&apos;évènement
                   </button>
-                  <button className="rounded-full bg-gray-500 px-7 py-3 text-base font-medium text-white transition hover:bg-gray-600">
+                  <a
+                    href="https://www.eventbrite.com/e/billets-seance-de-projection-de-rafprod-agora-film-invest-344147232637"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex rounded-full bg-gray-500 px-7 py-3 text-base font-medium text-white transition hover:bg-gray-600"
+                  >
                     Inscription à l&apos;évènement
-                  </button>
+                  </a>
                 </div>
               </div>
               <div className="parallax-media relative min-h-[260px] w-full overflow-hidden md:hidden">
