@@ -57,9 +57,10 @@ const team = [
     img: "/images/team-deborah-denecke.jpg",
   },
   {
-    name: "Amaka Anthony",
-    role: "Chargée de coproduction Nollywood / Nigeria",
-    img: "/images/team-amaka-anthony.jpg",
+    name: "Chiamaka Sandra Anthony",
+    role:
+      "TV / Film Essentiels — New York School of the Arts — réalisatrice de courts métrages\nCostumière / styliste — ESMOD (école de mode française)",
+    img: "/images/team-chiamaka-sandra-anthony.jpg",
   },
 ];
 
