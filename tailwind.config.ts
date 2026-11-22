@@ -6,9 +6,15 @@ export default {
     extend: {
       colors: {
         agGreen: "#007f59",
+        /* Couleurs tirées du logo AGORA : prune (lettrage) et sable (bobines). */
+        brand: {
+          plum: "#35203a",
+          sand: "#d8c39d",
+          "sand-dark": "#b89b6a",
+        },
       },
       fontFamily: {
-        sans: ["Inter", "Arial", "Helvetica", "sans-serif"],
+        sans: ["var(--font-raleway)", "Arial", "Helvetica", "sans-serif"],
       },
       boxShadow: {
         soft: "0 12px 30px rgba(0, 0, 0, 0.18)",

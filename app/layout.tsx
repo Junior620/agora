@@ -7,7 +7,9 @@ import "./globals.css";
 
 const raleway = Raleway({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
+  weight: ["400", "500", "600", "700", "800", "900"],
+  variable: "--font-raleway",
+  display: "swap",
 });
 
 const siteName = "Agora Film Invest";
@@ -60,8 +62,8 @@ export const metadata: Metadata = {
     images: [
       {
         url: "/images/hero-main.jpg",
-        width: 1200,
-        height: 630,
+        width: 919,
+        height: 694,
         alt: "Agora Film Invest — cinéma et production",
       },
     ],
@@ -96,6 +98,16 @@ function getJsonLd() {
         name: siteName,
         url: base,
         description,
+        logo: `${base}/logo/logo.png`,
+        telephone: "+33778214874",
+        address: {
+          "@type": "PostalAddress",
+          streetAddress: "12 rue de la République, Domly",
+          postalCode: "97110",
+          addressLocality: "Pointe-à-Pitre",
+          addressRegion: "Guadeloupe",
+          addressCountry: "FR",
+        },
         areaServed: ["GP", "MQ", "FR", "SN", "EU"],
       },
       {
@@ -113,8 +125,14 @@ function getJsonLd() {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="fr" className="w-full max-w-full overflow-x-hidden">
-      <body className={`w-full max-w-full overflow-x-hidden antialiased ${raleway.className}`}>
+    <html lang="fr" className={`w-full max-w-full overflow-x-hidden ${raleway.variable}`}>
+      <body className={`w-full max-w-full overflow-x-hidden font-sans antialiased ${raleway.className}`}>
+        <a
+          href="#contenu"
+          className="sr-only z-[100] rounded-full bg-black px-5 py-3 text-sm font-semibold text-white focus:not-sr-only focus:fixed focus:left-4 focus:top-4"
+        >
+          Aller au contenu
+        </a>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(getJsonLd()) }} />
         {children}
         <Analytics />

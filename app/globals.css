@@ -19,16 +19,45 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-.container-site {
-  @apply mx-auto w-full max-w-[1280px];
+::selection {
+  background: #d8c39d;
+  color: #0f0f0f;
 }
 
-.section-title {
-  @apply text-center text-4xl font-black uppercase tracking-wide md:text-5xl;
+/* Contour de focus visible au clavier, discret à la souris */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid #b89b6a;
+  outline-offset: 3px;
+  border-radius: 6px;
 }
 
-.btn-primary {
-  @apply inline-flex rounded-full bg-black px-8 py-3 text-sm font-semibold text-white transition duration-300 hover:scale-105;
+/* Classes réutilisables : dans la couche « components » pour que les utilitaires Tailwind
+   ajoutés dans le JSX (px-*, text-*, border-*...) puissent les surcharger. */
+@layer components {
+  .container-site {
+    @apply mx-auto w-full max-w-[1280px];
+  }
+
+  /* Titre de section unique pour tout le site (taille, graisse, casse identiques) */
+  .section-title {
+    @apply break-words text-center text-[1.75rem] font-extrabold uppercase leading-tight tracking-[0.03em] sm:text-4xl md:text-[44px];
+  }
+
+  /* Petit trait sable sous les titres de section */
+  .section-bar {
+    @apply mx-auto mt-4 block h-[3px] w-16 rounded-full bg-brand-sand-dark;
+  }
+
+  .btn-primary {
+    @apply inline-flex cursor-pointer items-center justify-center rounded-full bg-black px-8 py-3 text-sm font-semibold text-white transition duration-200 hover:bg-brand-plum;
+  }
+
+  .btn-secondary {
+    @apply inline-flex cursor-pointer items-center justify-center rounded-full border-2 border-black px-7 py-[10px] text-base font-medium text-black transition duration-200 hover:bg-black hover:text-white;
+  }
 }
 
 .fade-section {
@@ -36,8 +65,8 @@ body {
   transform: translateY(30px);
 }
 
-/* Mobile : pas d’apparition au scroll (évite contenus invisibles, transforms bugués) */
-@media (max-width: 767px) {
+/* Mobile et « animations réduites » : pas d’apparition au scroll (évite contenus invisibles, transforms bugués) */
+@media (max-width: 767px), (prefers-reduced-motion: reduce) {
   .fade-section {
     opacity: 1;
     transform: none;
