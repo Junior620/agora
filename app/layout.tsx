@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     template: `%s | ${siteName}`,
   },
   description,
-  /* Favicon / Apple : générés par app/icon.tsx et app/apple-icon.tsx (haute résolution, lisibles à petite taille). */
+  /* Favicon / Apple : app/favicon.ico, app/icon.png et app/apple-icon.png (npm run brand:assets). */
   applicationName: siteName,
   authors: [{ name: siteName, url: getSiteUrl() }],
   creator: siteName,
@@ -59,20 +59,13 @@ export const metadata: Metadata = {
     siteName,
     title: titleDefault,
     description,
-    images: [
-      {
-        url: "/images/hero-main.jpg",
-        width: 919,
-        height: 694,
-        alt: "Agora Film Invest — cinéma et production",
-      },
-    ],
+    /* Image : générée par app/opengraph-image.tsx (1200×630). */
   },
   twitter: {
     card: "summary_large_image",
     title: titleDefault,
     description,
-    images: ["/images/hero-main.jpg"],
+    /* Image : générée par app/twitter-image.tsx. */
   },
   formatDetection: {
     telephone: true,

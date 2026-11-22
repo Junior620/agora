@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "qr:site": "node scripts/generate-site-qr.cjs"
+    "qr:site": "node scripts/generate-site-qr.cjs",
+    "brand:assets": "node scripts/generate-brand-assets.cjs"
   },
   "dependencies": {
     "@vercel/analytics": "^2.0.1",
