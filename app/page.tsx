@@ -753,6 +753,10 @@ export default function Home() {
                 remporte le Prix du meilleur documentaire au Lekki International Film Festival (LEKKIFEST) de Lagos.
               </p>
               <p className="mt-3 max-w-[640px] text-[16px] leading-[1.7] text-white/85">
+                AGORA FILM INVEST est dirigée par le Dr Didier Mouliom, qui accompagne les professionnels de la
+                diversité du monde entier au Festival de Cannes.
+              </p>
+              <p className="mt-3 max-w-[640px] text-[16px] leading-[1.7] text-white/85">
                 Le film revient sur la naissance du concept AGORA — Art Général d&apos;Origine Africaine — lors du 50ᵉ
                 Festival de Cannes en 1997, et interroge la reconnaissance des cinémas d&apos;Afrique et de sa diaspora.
                 Une distinction obtenue aux côtés d&apos;autres productions francophones primées cette année.
